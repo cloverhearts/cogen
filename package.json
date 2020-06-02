@@ -1,0 +1,35 @@
+{
+  "name": "cogen",
+  "version": "0.1.0",
+  "description": "Javascript/Typescript project code generator",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "cogen": "bin/cogen"
+  },
+  "engines": {
+    "node": ">= 7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloverhearts/cogen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloverhearts/cogen/issues"
+  },
+  "homepage": "https://github.com/cloverhearts/cogen#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "commander": "^5.1.0",
+    "esm": "^3.2.25",
+    "lowdb": "^1.0.0",
+    "os-locale": "^5.0.0",
+    "prompts": "^2.3.2"
+  }
+}

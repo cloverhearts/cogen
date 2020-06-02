@@ -1,0 +1,20 @@
+{
+  "program": {
+    "command": {
+      "new": {
+        "description" : {
+          "en": "Project name",
+          "ko": "프로젝트 이름"
+        }
+      }
+    },
+    "options": {
+      "version": {
+        "description" : {
+          "en": "Check the version",
+          "ko": "버전을 확인합니다"
+        }
+      }
+    }
+  }
+}

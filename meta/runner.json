@@ -1,0 +1,17 @@
+{
+  "name": "cogen",
+  "meta-url": "",
+  "updated-at-utc": "2020-06-02T14:11:02.420Z",
+  "news": [
+    "Hi! Cogen!"
+  ],
+  "maintainer": [
+    {
+      "name": "CloverHearts",
+      "email": "cloverheartsdev+cogen@gmail.com",
+      "homepage-url": "https://github.com/cloverhearts",
+      "profile-url": "https://github.com/cloverhearts"
+    }
+  ],
+  "contributors": []
+}
