@@ -1,9 +1,8 @@
 
-
-import LOCALE from './src/libraries/utils/locale'
-import versionChecker from './src/libraries/fetch/meta-runner'
 import INITIALIZE from './src/initialize'
+import LOCALE from './src/actions/utils/locale'
 import LOGO from './src/logo'
+
 
 import NEW_ACTION from './src/createProject'
 import UPDATE from './src/update'
@@ -13,6 +12,7 @@ const path = require('path')
 const PACKAGE_INFORMATION = require(path.join(__dirname, 'package.json'))
 
 export const NEW_COMMAND_ACTION = async (processArgv) => {
+  await INITIALIZE()
   const program = commander.program
   program
     .name(`${PACKAGE_INFORMATION.name} new`)

@@ -1,0 +1,29 @@
+{
+  "updated-at-utc": "2020-06-02T14:11:02.420Z",
+  "templates": [
+    {
+      "name": "cogen-standard-javascript-library",
+      "alias": "cjsl",
+      "description": {
+        "en": "Cogen standard javascript module template.",
+        "ko": "Cogen 표준 자바스크립트 모듈 라이브러리 템플릿"
+      },
+      "file-url": "",
+      "file-url-is-only-github": "yet",
+      "language": ["javascript"],
+      "repository": "https://github.com/cloverhearts/javascript-module-boilerplate",
+      "homepage": "https://github.com/cloverhearts/javascript-module-boilerplate",
+      "author": [
+        {
+          "name": "CloverHearts",
+          "email": "cloverheartsdev+cogen@gmail.com",
+          "homepage-url": "https://github.com/cloverhearts",
+          "profile-url": "https://github.com/cloverhearts"
+        }
+      ],
+      "comments": {
+        "install-after": ""
+      }
+    }
+  ]
+}
