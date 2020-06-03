@@ -1,2 +1,2 @@
 
-export default () => console.log('UPDATE!')
+export default async () => console.log('UPDATE!')

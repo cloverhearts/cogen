@@ -3,8 +3,8 @@
     "command": {
       "new": {
         "description" : {
-          "en": "Project name",
-          "ko": "프로젝트 이름"
+          "en": "Create a new project",
+          "ko": "새로운 프로젝트를 생성합니다"
         }
       }
     },
@@ -13,6 +13,12 @@
         "description" : {
           "en": "Check the version",
           "ko": "버전을 확인합니다"
+        }
+      },
+      "help": {
+        "description" : {
+          "en": "Displayed help guide at now",
+          "ko": "현재 표시된 도움말 안내"
         }
       }
     }

@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+chalk = require('chalk');
+require = require('esm')(module);
+const { NEW_COMMAND_ACTION } = require('../runner')
+NEW_COMMAND_ACTION(process.argv)
