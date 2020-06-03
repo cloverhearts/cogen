@@ -21,14 +21,12 @@ export const NEW_COMMAND_ACTION = async (processArgv) => {
       console.log('create project ' + project_name + ' debug is ', !!cmdObj.debug)
       NEW_ACTION(project_name)
     })
-    console.log('value ', value)
   program.parseAsync(processArgv)
 }
 
 export default async (processArgv) => {
   const [NODE_PATH, EXECUTE_PATH, ...COMMAND_ARG ] = processArgv
   await LOGO()
-  console.log('value ', value)
   const program = commander.program
   program
     .version(PACKAGE_INFORMATION.version, '-v, --version', await LOCALE('program.options.version.description'))
