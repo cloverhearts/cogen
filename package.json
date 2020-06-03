@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/cloverhearts/cogen#readme",
   "dependencies": {
-    "axios": "^0.19.2",
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
     "esm": "^3.2.25",
+    "got": "^11.2.0",
     "lowdb": "^1.0.0",
+    "ora": "^4.0.4",
     "os-locale": "^5.0.0",
     "prompts": "^2.3.2"
   }
