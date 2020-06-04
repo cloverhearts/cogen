@@ -22,5 +22,13 @@
         }
       }
     }
+  },
+  "error": {
+    "common": {
+      "directory_exists": {
+        "en": "Directory already exists.",
+        "ko": "디렉토리가 이미 존재합니다."
+      }
+    }
   }
 }

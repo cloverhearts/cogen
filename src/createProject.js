@@ -1,4 +1,10 @@
-module.exports = async (commander, cogen) => {
-    console.log('execute to new command ', !!commander.template, cogen)
-    cogen.actions.execute.directory.mkdir(cogen.projectPath)
+const abstractCommand = (commander, cogen) => {
+    return {
+        usingTemplate: !!commander.template
+    }
+}
+
+exports.ASK_COMMON_CREATE_PROJECT = async (commander, cogen) => {
+    const createProjectCommand = abstractCommand(commander, cogen)
+    console.log(createProjectCommand.usingTemplate)
 }

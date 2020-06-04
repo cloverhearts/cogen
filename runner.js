@@ -2,9 +2,10 @@
 const INITIALIZE = require('./src/initialize')
 const LOCALE = require('./src/actions/utils/locale')
 const LOGO = require('./src/logo')
-const NEW_ACTION = require('./src/createProject')
+const { ASK_COMMON_CREATE_PROJECT } = require('./src/createProject')
 const UPDATE = require('./src/update')
 
+const chalk = require('chalk')
 const commander = require('commander');
 const path = require('path')
 const PACKAGE_INFORMATION = require(path.join(__dirname, 'package.json'))
@@ -15,11 +16,15 @@ exports.NEW_COMMAND_ACTION = async (processArgv) => {
   program
     .name(`${PACKAGE_INFORMATION.name} new`)
     .arguments('[project_name]')
-    .option('-t, --template')
-    .action((project_name, cmdObj) => {
+    .option('-t, --template', 'Create project using template')
+    .action(async (project_name, cmdObj) => {
       cogen.projectName = project_name
       cogen.projectPath = path.join(cogen.cwd, project_name)
-      NEW_ACTION(cmdObj, cogen)
+      if (await cogen.actions.execute.directory.existsDir(cogen.projectPath)) {
+        console.log(chalk.redBright(`${cogen.projectName} ${await LOCALE('error.common.directory_exists')}`))
+      } else {
+        ASK_COMMON_CREATE_PROJECT(cmdObj, cogen)
+      }
     })
   program.parseAsync(processArgv)
 }
