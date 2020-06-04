@@ -1,2 +1,2 @@
 
-export default async () => console.log('UPDATE!')
+module.exports = async () => console.log('UPDATE!')

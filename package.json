@@ -4,7 +4,7 @@
   "description": "Javascript/Typescript project code generator",
   "main": "cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "bin": {
     "cogen": "bin/cogen"
@@ -26,12 +26,15 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
-    "esm": "^3.2.25",
     "got": "^11.2.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^1.0.4",
     "ora": "^4.0.4",
     "os-locale": "^5.0.0",
     "prompts": "^2.3.2"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "jest-esm-transformer": "^1.0.0"
   }
 }

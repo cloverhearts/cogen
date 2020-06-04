@@ -1,30 +1,30 @@
 
-import INITIALIZE from './src/initialize'
-import LOCALE from './src/actions/utils/locale'
-import LOGO from './src/logo'
-
-
-import NEW_ACTION from './src/createProject'
-import UPDATE from './src/update'
+const INITIALIZE = require('./src/initialize')
+const LOCALE = require('./src/actions/utils/locale')
+const LOGO = require('./src/logo')
+const NEW_ACTION = require('./src/createProject')
+const UPDATE = require('./src/update')
 
 const commander = require('commander');
 const path = require('path')
 const PACKAGE_INFORMATION = require(path.join(__dirname, 'package.json'))
 
-export const NEW_COMMAND_ACTION = async (processArgv) => {
-  await INITIALIZE()
+exports.NEW_COMMAND_ACTION = async (processArgv) => {
+  const cogen = await INITIALIZE()
   const program = commander.program
   program
     .name(`${PACKAGE_INFORMATION.name} new`)
     .arguments('[project_name]')
+    .option('-t, --template')
     .action((project_name, cmdObj) => {
-      console.log('create project ' + project_name + ' debug is ', !!cmdObj.debug)
-      NEW_ACTION(project_name)
+      cogen.projectName = project_name
+      cogen.projectPath = path.join(cogen.cwd, project_name)
+      NEW_ACTION(cmdObj, cogen)
     })
   program.parseAsync(processArgv)
 }
 
-export default async (processArgv) => {
+exports.GATE = async (processArgv) => {
   const [NODE_PATH, EXECUTE_PATH, ...COMMAND_ARG ] = processArgv
   await LOGO()
   const program = commander.program

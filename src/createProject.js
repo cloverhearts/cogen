@@ -1,3 +1,4 @@
-export default async (dir, cmdObj) => {
-    console.log('execute to new command ', dir, cmdObj, global._cogen)
+module.exports = async (commander, cogen) => {
+    console.log('execute to new command ', !!commander.template, cogen)
+    cogen.actions.execute.directory.mkdir(cogen.projectPath)
 }
