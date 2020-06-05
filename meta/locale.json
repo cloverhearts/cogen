@@ -1,5 +1,11 @@
 {
   "program": {
+    "common": {
+      "enjoy": {
+        "en": "Enjoy!",
+        "ko": "Enjoy!"
+      }
+    },
     "command": {
       "new": {
         "description" : {
@@ -12,6 +18,16 @@
               "en": "Please, select a template to use for your project",
               "ko": "사용할 프로젝트 템플릿을 선택해주세요"
             }
+          }
+        },
+        "status": {
+          "download_template": {
+            "en": "Download template",
+            "ko": "템플릿 다운로드"
+          },
+          "create_done": {
+            "en": "Complete! checkout your project license and description on package.json\nDon't remember <npm install>!",
+            "ko": "끝났습니다! package.json의 라이선스와 설명부분을 확인하세요\n<npm install>을 잊지 마세요!"
           }
         }
       }
@@ -29,6 +45,10 @@
           "ko": "현재 표시된 도움말 안내"
         }
       }
+    }
+  },
+  "template": {
+    "common": {
     }
   },
   "error": {
