@@ -1,3 +1,5 @@
+const npmPackageJSON = require('./model/PackageJSON')
+
 const os = require("os");
 const { exec } = require("child_process");
 const { shellExec } = require("../shell");
@@ -10,6 +12,17 @@ const ALLOW_NPM_INSTALL_MODES = [
 ];
 const DEFAULT_NPM_INSTALL_MODE = "--save-prod";
 
+function getDefaultPackageJSON() {
+  return new npmPackageJSON()
+}
+
+/**
+ * Common npm install command function.
+ * @param {String} targetDirectory 
+ * @param {Array[String]} packages 
+ * @param {String} _mode 
+ * @param {Object} opts 
+ */
 async function _npmInstall(targetDirectory, packages, _mode = '', opts) {
   const MODE =
     ALLOW_NPM_INSTALL_MODES.includes(_mode) || DEFAULT_NPM_INSTALL_MODE;
@@ -23,6 +36,7 @@ async function _npmInstall(targetDirectory, packages, _mode = '', opts) {
 }
 
 module.exports = {
+  getDefaultPackageJSON,
   install: async (targetDirectory) => {
     return await _npmInstall(targetDirectory, [], '')
   },

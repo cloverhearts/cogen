@@ -11,6 +11,18 @@ module.exports = {
     existsDir: async (dirPath) => {
         return fs.existsSync(dirPath)
     },
+    writeFile: async (dirPath, filename, context, format = 'json') => {
+        return fs.writeFileSync(`${dirPath}/${filename}`, context, { encoding : 'utf8' })
+    },
+    readFile: async (dirPath, filename) => {
+        return fs.readFileSync(`${dirPath}/${filename}`, { encoding : 'utf8' })
+    },
+    removeFile: async (dirPath, filename) => {
+        return fs.unlinkSync(`${dirPath}/${filename}`)
+    },
+    existsFile: async (dirPath, filename) => {
+        return fs.existsSync(`${dirPath}/${filename}`)
+    },
     cd: (dirPath) => {
         return new Promise((resolve, reject) => {
             try {

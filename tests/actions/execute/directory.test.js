@@ -54,3 +54,29 @@ test('test for move path and current path variables', async () => {
     expect(await cogen.actions.execute.directory.pwd()).toBe(currentPath)
     await cogen.actions.execute.directory.rmdir(FULL_PATH)
 })
+
+test('test for write file and read and remove', async () => {
+    const DIRECTORY_NAME = 'MY_WALLET'
+    const ORIGINAL_PATH = `${cogen.cwd}`
+    const FULL_PATH = path.join(`${cogen.cwd}`, `${DIRECTORY_NAME}`)
+    const FILE_NAME = 'money.json'
+    const context = { money: 100 }
+
+    await cogen.actions.execute.directory.mkdir(FULL_PATH)
+
+    expect(await cogen.actions.execute.directory.existsFile(FULL_PATH, FILE_NAME)).toBeFalsy()
+
+    await cogen.actions.execute.directory.writeFile(FULL_PATH, FILE_NAME, JSON.stringify(context))
+
+    expect(await cogen.actions.execute.directory.existsFile(FULL_PATH, FILE_NAME)).toBeTruthy()
+
+    const data = await cogen.actions.execute.directory.readFile(FULL_PATH, FILE_NAME)
+
+    expect(context.money).toBe(JSON.parse(data).money)
+
+    await cogen.actions.execute.directory.removeFile(FULL_PATH, FILE_NAME)
+
+    expect(await cogen.actions.execute.directory.existsFile(FULL_PATH, FILE_NAME)).toBeFalsy()
+
+    await cogen.actions.execute.directory.rmdir(FULL_PATH)
+})
