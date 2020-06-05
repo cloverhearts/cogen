@@ -26,6 +26,7 @@
   "dependencies": {
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
+    "extract-zip": "^2.0.0",
     "got": "^11.2.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^1.0.4",

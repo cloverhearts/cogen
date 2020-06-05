@@ -1,6 +1,6 @@
 
 const INITIALIZE = require('./src/initialize')
-const LOCALE = require('./src/actions/utils/locale')
+const { LOCALE } = require('./src/actions/utils/locale')
 const LOGO = require('./src/logo')
 const { ASK_COMMON_CREATE_PROJECT } = require('./src/createProject')
 const UPDATE = require('./src/update')
@@ -21,7 +21,7 @@ exports.NEW_COMMAND_ACTION = async (processArgv) => {
       cogen.projectName = project_name
       cogen.projectPath = path.join(cogen.cwd, project_name)
       if (await cogen.actions.execute.directory.existsDir(cogen.projectPath)) {
-        console.log(chalk.redBright(`${cogen.projectName} ${await LOCALE('error.common.directory_exists')}`))
+        console.log(chalk.redBright(`${cogen.projectName} ${LOCALE('error.common.directory_exists')}`))
       } else {
         ASK_COMMON_CREATE_PROJECT(cmdObj, cogen)
       }
@@ -34,10 +34,10 @@ exports.GATE = async (processArgv) => {
   await LOGO()
   const program = commander.program
   program
-    .version(PACKAGE_INFORMATION.version, '-v, --version', await LOCALE('program.options.version.description'))
-    .command('new <project_name>', await LOCALE('program.command.new.description'))
+    .version(PACKAGE_INFORMATION.version, '-v, --version', LOCALE('program.options.version.description'))
+    .command('new <project_name>', LOCALE('program.command.new.description'))
     .addHelpCommand(false)
-    .helpOption('-h, --help', await LOCALE('program.options.help.description'))
+    .helpOption('-h, --help', LOCALE('program.options.help.description'))
     .on('--help', () => {
       console.log('');
       console.log('Example call2:');

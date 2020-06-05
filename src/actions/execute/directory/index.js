@@ -11,8 +11,8 @@ module.exports = {
     existsDir: async (dirPath) => {
         return fs.existsSync(dirPath)
     },
-    writeFile: async (dirPath, filename, context, format = 'json') => {
-        return fs.writeFileSync(`${dirPath}/${filename}`, context, { encoding : 'utf8' })
+    writeFile: async (dirPath, filename, context, option = { encoding : 'utf8' }) => {
+        return fs.writeFileSync(`${dirPath}/${filename}`, context, option)
     },
     readFile: async (dirPath, filename) => {
         return fs.readFileSync(`${dirPath}/${filename}`, { encoding : 'utf8' })

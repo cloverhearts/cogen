@@ -8,7 +8,7 @@
         "en": "Cogen standard javascript module template.",
         "ko": "Cogen 표준 자바스크립트 모듈 라이브러리 템플릿"
       },
-      "file-url": "",
+      "file-url": "https://github.com/cloverhearts/javascript-module-boilerplate/archive/master.zip",
       "file-url-is-only-github": "yet",
       "language": ["javascript"],
       "repository": "https://github.com/cloverhearts/javascript-module-boilerplate",

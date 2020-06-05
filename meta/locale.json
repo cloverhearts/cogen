@@ -5,6 +5,14 @@
         "description" : {
           "en": "Create a new project",
           "ko": "새로운 프로젝트를 생성합니다"
+        },
+        "option": {
+          "template": {
+            "select_question": {
+              "en": "Please, select a template to use for your project",
+              "ko": "사용할 프로젝트 템플릿을 선택해주세요"
+            }
+          }
         }
       }
     },
@@ -25,9 +33,17 @@
   },
   "error": {
     "common": {
+      "unknown": {
+        "en": "Unknown error",
+        "ko": "알 수 없는 에러"
+      },
       "directory_exists": {
         "en": "Directory already exists.",
         "ko": "디렉토리가 이미 존재합니다."
+      },
+      "cannot_found_template": {
+        "en": "Cannot found template",
+        "ko": "템플릿을 찾을 수 없습니다"
       }
     }
   }
