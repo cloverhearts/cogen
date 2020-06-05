@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+chalk = require('chalk');
+const { NEW_COMMAND_ACTION } = require('../runner')
+NEW_COMMAND_ACTION(process.argv)

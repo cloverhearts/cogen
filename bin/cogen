@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+chalk = require('chalk');
+const { GATE } = require('../runner')
+GATE(process.argv)
