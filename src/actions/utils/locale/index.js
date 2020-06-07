@@ -12,7 +12,7 @@ if (!OS_LOCALE) {
   })
 }
 
-exports.OS_LOCALE = () => OS_LOCALE
+exports.OS_LOCALE = () => OS_LOCALE || 'en'
 
 exports.LOCALE = (localePath) => {
   const tokens = localePath.split('.')

@@ -47,6 +47,16 @@
       }
     }
   },
+  "stacks": {
+    "steps": {
+      "languages": {
+        "question" : {
+          "en": "Select to use your language for create project",
+          "ko": "프로젝트에 사용할 언어를 선택해주세요"
+        }
+      }
+    }
+  },
   "template": {
     "common": {
     }
