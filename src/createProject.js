@@ -105,6 +105,11 @@ exports.ASK_NEW_CREATE_PROJECT = ASK_NEW_CREATE_PROJECT
 
 exports.ASK_COMMON_CREATE_PROJECT = async (commander, cogen) => {
     const createProjectCommand = abstractCommand(commander, cogen)
+
+    await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
+
+    // ignore new create project
+    return
     if (createProjectCommand.usingTemplate) {
         await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
     } else {
