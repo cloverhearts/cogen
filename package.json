@@ -1,6 +1,6 @@
 {
   "name": "cogen",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Javascript/Typescript project code generator",
   "main": "cli.js",
   "scripts": {
@@ -27,7 +27,6 @@
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
     "decompress": "^4.2.1",
-    "extract-zip": "^2.0.0",
     "got": "^11.2.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^1.0.4",

@@ -1,4 +1,5 @@
 const npmPackageJSON = require('./model/PackageJSON')
+const ConfigFile = require('./model/ConfigFile')
 
 const os = require("os");
 const { exec } = require("child_process");
@@ -37,6 +38,9 @@ async function _npmInstall(targetDirectory, packages, _mode = '', opts) {
 
 module.exports = {
   getDefaultPackageJSON,
+  getConfigFile: () => {
+    return new ConfigFile()
+  },
   install: async (targetDirectory) => {
     return await _npmInstall(targetDirectory, [], '')
   },

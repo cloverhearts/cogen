@@ -1,3 +1,4 @@
+const createProjectStacks = require('./stacks')
 const directoryControl = require('./actions/execute/directory')
 const { OS_LOCALE, LOCALE } = require('./actions/utils/locale')
 
@@ -7,7 +8,6 @@ const Prompts = require('prompts')
 const chalk = require('chalk')
 const ora = require('ora')
 const got = require('got')
-const extract = require('extract-zip')
 const decompress = require('decompress');
 
 
@@ -32,13 +32,6 @@ function printTemplateProfile (template) {
     console.log(chalk.cyan (`${template.authors.map(author => {
         return `${author.name} <${author.email}>\n- Repo: ${author['profile-url']}\n- Home: ${author['homepage-url']}`
     })}`))
-}
-
-exports.ASK_COMMON_CREATE_PROJECT = async (commander, cogen) => {
-    const createProjectCommand = abstractCommand(commander, cogen)
-    if (createProjectCommand.usingTemplate) {
-        ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
-    }
 }
 
 const ASK_TEMPLATE_CREATE_PROJECT = async (createProjectCommand, cogen) => {
@@ -99,7 +92,27 @@ const ASK_TEMPLATE_CREATE_PROJECT = async (createProjectCommand, cogen) => {
         console.error(chalk.redBright(LOCALE('error.common.unknown')))
         console.error(error)
     }
-    
 }
 
 exports.ASK_TEMPLATE_CREATE_PROJECT = ASK_TEMPLATE_CREATE_PROJECT
+
+const ASK_NEW_CREATE_PROJECT = async (createProjectCommand, cogen) => {
+    const result = await createProjectStacks.runSteps(cogen, createProjectCommand)
+    console.log(result)
+}
+
+exports.ASK_NEW_CREATE_PROJECT = ASK_NEW_CREATE_PROJECT
+
+exports.ASK_COMMON_CREATE_PROJECT = async (commander, cogen) => {
+    const createProjectCommand = abstractCommand(commander, cogen)
+
+    await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
+
+    // ignore new create project
+    return
+    if (createProjectCommand.usingTemplate) {
+        await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
+    } else {
+        await ASK_NEW_CREATE_PROJECT(createProjectCommand, cogen)
+    }
+}
