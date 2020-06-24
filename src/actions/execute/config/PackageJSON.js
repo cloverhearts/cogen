@@ -36,6 +36,7 @@ class PackageJSON {
             }
             return model[token]
         }, this._model)
+        return this
     }
 
     /**
@@ -59,42 +60,52 @@ class PackageJSON {
             }
             return model[token]
         }, this._model)
+        return this
     }
 
     name(_projectName) {
         this.set('name', _projectName)
+        return this
     }
 
     version(_version) {
         this.set('version', _version)
+        return this
     }
 
     description(_description) {
         this.set('description', _description)
+        return this
     }
 
     main(_main) {
         this.set('main', _main)
+        return this
     }
 
     scripts(_scripts) {
         this.set('scripts', _scripts)
+        return this
     }
 
     keywords(_keywords) {
         this.set('keywords', _keywords)
+        return this
     }
 
     author(_author) {
         this.set('author', _author)
+        return this
     }
 
     dependencies(_dependencies) {
         this.set('dependencies', _dependencies)
+        return this
     }
 
     devDependencies(_devDependencies) {
         this.set('devDependencies', _devDependencies)
+        return this
     }
 
     toString() {

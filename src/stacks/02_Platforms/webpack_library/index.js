@@ -18,9 +18,9 @@ module.exports = async (selected, cogen) => {
       config._packageJSON.set('devDependencies.webpack', '^4.43.0')
 
         // make webpack prod config
-      if (config._configFile.get('webpack.config.js')) {
+      if (config._files['webpack.config.js']) {
         const webpackProdConfig = {...defaultWebpackConfig }
-        config._configFile.set('webpack.config.js',
+        config._files['webpack.config.js']
           {
             value: webpackProdConfig,
             toValue: () => {
@@ -34,10 +34,10 @@ module.exports = ${JSON.stringify(webpackProdConfig)}
       }
 
         // make webpack dev config
-        if (config._configFile.get('webpack.config.dev.js')) {
+        if (config._files.get('webpack.config.dev.js')) {
           const webpackDevConfig = {...defaultWebpackConfig }
           webpackDevConfig.mode = 'development'
-          config._configFile.set('webpack.config.dev.js',
+          config._files.set('webpack.config.dev.js',
             {
               value: webpackDevConfig,
               toValue: () => {

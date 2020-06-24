@@ -2,12 +2,12 @@ exports.WEBPACK_CONFIG = {
   module: {},
   target: "web",
   entry: {
-    mylib: path.resolve(__dirname, "index.js")
+    mylib: () => path.resolve(__dirname, "index.js")
   },
 
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
+    path: () => path.resolve(__dirname, "dist"),
     libraryTarget: "umd",
     umdNamedDefine: true
   },

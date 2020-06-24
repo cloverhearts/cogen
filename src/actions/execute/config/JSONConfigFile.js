@@ -1,4 +1,4 @@
-class ConfigFile {
+class JSONConfigFile {
   constructor() {
     this._config = {}
   }
@@ -25,4 +25,4 @@ class ConfigFile {
   }
 }
 
-module.exports = ConfigFile
+module.exports = JSONConfigFile
