@@ -1,27 +1,14 @@
 class JSONConfigFile {
-  constructor() {
-    this._config = {}
-  }
-
-  /**
-   *
-   * @param path
-   * @param value { toValue() }
-   */
-  set(path, value) {
-    if (value && value.toValue) {
-      this._config[path] = value
-    } else {
-      this._config[path] = { value, toValue: () => { return JSON.stringify(value)} }
-    }
-  }
-
-  get(path) {
-    return this._config[path]
+  constructor(config) {
+    this._config = {...config} || {}
   }
 
   toValue() {
     return this._config
+  }
+
+  toString() {
+    return JSON.stringify(this.toValue())
   }
 }
 

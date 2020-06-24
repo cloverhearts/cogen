@@ -98,7 +98,12 @@ exports.ASK_TEMPLATE_CREATE_PROJECT = ASK_TEMPLATE_CREATE_PROJECT
 
 const ASK_NEW_CREATE_PROJECT = async (createProjectCommand, cogen) => {
     const result = await createProjectStacks.runSteps(cogen, createProjectCommand)
-    console.log(result)
+    console.log('npm package json ', result._output._packageJSON.toString())
+    Object.keys(result._output._files).map(filepath => {
+        console.log('file path ', filepath)
+        const config = result._output._files[filepath].toString()
+        console.log('config ', config)
+    })
 }
 
 exports.ASK_NEW_CREATE_PROJECT = ASK_NEW_CREATE_PROJECT
@@ -106,10 +111,6 @@ exports.ASK_NEW_CREATE_PROJECT = ASK_NEW_CREATE_PROJECT
 exports.ASK_COMMON_CREATE_PROJECT = async (commander, cogen) => {
     const createProjectCommand = abstractCommand(commander, cogen)
 
-    await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
-
-    // ignore new create project
-    return
     if (createProjectCommand.usingTemplate) {
         await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
     } else {

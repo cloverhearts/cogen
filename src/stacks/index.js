@@ -5,8 +5,10 @@ module.exports = {
       const defaultPackageJSON = cogen.actions.execute.npm.getDefaultPackageJSON()
       defaultPackageJSON.name(cogen.projectName)
       const initializeConfig = {
-        _packageJSON: defaultPackageJSON,
-        _files: {}
+        _output: {
+          _packageJSON: defaultPackageJSON,
+          _files: {}
+        }
       }
       const stepFunctions = await getSteps(__dirname)
       const results = await runSteps(stepFunctions, initializeConfig, cogen, command)

@@ -14,42 +14,21 @@ module.exports = async (selected, cogen) => {
   return {
     title: 'Javascript library with Webpack',
     description: description,
-    value: { name: 'webpack_library', runner: async (config, cogen) => {
+    value: { name: 'webpack_library', runner: async (meta, cogen) => {
+      const config = meta._output
+      const WebpackConfig = cogen.actions.execute.config.webpack
       config._packageJSON.set('devDependencies.webpack', '^4.43.0')
-
         // make webpack prod config
-      if (config._files['webpack.config.js']) {
-        const webpackProdConfig = {...defaultWebpackConfig }
-        config._files['webpack.config.js']
-          {
-            value: webpackProdConfig,
-            toValue: () => {
-              return `
-const path = require("path");
-module.exports = ${JSON.stringify(webpackProdConfig)}
-              `
-            }
-          }
-        )
+      if (!config._files['webpack.config.js']) {
+        const webpackProdConfig = {...defaultWebpackConfig.WEBPACK_CONFIG, mode: 'production' }
+        config._files['webpack.config.js'] = new WebpackConfig({ bundleName: cogen.projectName, config: webpackProdConfig })
       }
 
-        // make webpack dev config
-        if (config._files.get('webpack.config.dev.js')) {
-          const webpackDevConfig = {...defaultWebpackConfig }
-          webpackDevConfig.mode = 'development'
-          config._files.set('webpack.config.dev.js',
-            {
-              value: webpackDevConfig,
-              toValue: () => {
-                return `
-const path = require("path");
-module.exports = ${JSON.stringify(webpackDevConfig)}
-              `
-              }
-            }
-          )
-        }
-
+      // make webpack dev config
+      if (!config._files['webpack.dev.config.js']) {
+        const webpackDevConfig = {...defaultWebpackConfig.WEBPACK_DEV_CONFIG, mode: 'development' }
+        config._files['webpack.dev.config.js'] = new WebpackConfig({ bundleName: cogen.projectName, config: webpackDevConfig })
+      }
     }}
   }
 }

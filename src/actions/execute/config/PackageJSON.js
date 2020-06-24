@@ -1,7 +1,8 @@
 class PackageJSON {
-    constructor() {
+    constructor(config = {}) {
+        const packageName = config.packageName || "my-new-package-with-cogen"
         this._model = { 
-            "name": "my-new-package-with-cogen",
+            "name": packageName,
             "version": "1.0.0", 
             "description": "",
             "main": "index.js",
@@ -17,8 +18,8 @@ class PackageJSON {
     /**
      * allowed key type likes 'key.depth1.depth2'.
      * set value by key with package.json
-     * @param {String} key 
-     * @param {Any} value 
+     * @param {String} key
+     * @param {Any} value
      */
     set(key, value) {
         if (!key) {
@@ -36,7 +37,6 @@ class PackageJSON {
             }
             return model[token]
         }, this._model)
-        return this
     }
 
     /**
@@ -60,7 +60,6 @@ class PackageJSON {
             }
             return model[token]
         }, this._model)
-        return this
     }
 
     name(_projectName) {
