@@ -17,8 +17,8 @@ class WebpackConfigModel {
     this._exports = config
   }
 
-  require(name, alias) {
-    this._requires[name] = { name, alias: alias || name }
+  require(alias, packageName) {
+    this._requires[alias] = { name: packageName, alias: alias || packageName }
   }
 
   get exports() {

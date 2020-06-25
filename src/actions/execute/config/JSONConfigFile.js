@@ -8,7 +8,7 @@ class JSONConfigFile {
   }
 
   toString() {
-    return JSON.stringify(this.toValue())
+    return JSON.stringify(this.toValue(), null, 2)
   }
 }
 

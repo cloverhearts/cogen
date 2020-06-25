@@ -11,7 +11,6 @@ module.exports = async (selected, cogen, command) => {
     choices: choices,
     initial: 0
   })
-
   return {
     ...selected,
     platforms,

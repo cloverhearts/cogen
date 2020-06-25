@@ -18,6 +18,11 @@ module.exports = async (selected, cogen) => {
       const config = meta._output
       const WebpackConfig = cogen.actions.execute.config.webpack
       config._packageJSON.set('devDependencies.webpack', '^4.43.0')
+      config._packageJSON.set('devDependencies.npm-run-all', '^4.1.5')
+      config._packageJSON.set('devDependencies.rimraf', '^3.0.2')
+
+      config._packageJSON.set('scripts.clean', 'rimraf ./dist')
+
         // make webpack prod config
       if (!config._files['webpack.config.js']) {
         const webpackProdConfig = {...defaultWebpackConfig.WEBPACK_CONFIG, mode: 'production' }

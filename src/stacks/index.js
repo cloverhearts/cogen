@@ -13,6 +13,7 @@ module.exports = {
       const stepFunctions = await getSteps(__dirname)
       const results = await runSteps(stepFunctions, initializeConfig, cogen, command)
       results.platforms.value.runner(results, cogen)
+      results.transfilers.value.runner(results, cogen)
       return results
     }
 }
