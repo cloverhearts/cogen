@@ -7,6 +7,6 @@ module.exports = async (selected, cogen) => {
   return {
     title: 'Typescript',
     description: description,
-    value: { name: 'typescript', execute: [] }
+    value: { name: 'typescript', execute: [], disabled: true }
   }
 }
