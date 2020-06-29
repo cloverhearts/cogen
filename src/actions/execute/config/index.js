@@ -1,9 +1,9 @@
-const webpackConfig = require('./WebpackConfigModel')
+const jsConfig = require('./JSConfigModel')
 const jsonConfig = require('./JSONConfigFile')
 const packageJSON = require('./PackageJSON')
 
 module.exports = {
-  webpack: webpackConfig,
+  jsConfig: jsConfig,
   jsonConfig,
   packageJSON
 }

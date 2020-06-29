@@ -108,7 +108,7 @@ class PackageJSON {
     }
 
     toString() {
-        return JSON.stringify(this._model)
+        return JSON.stringify(this._model, null, 2)
     }
 }
 

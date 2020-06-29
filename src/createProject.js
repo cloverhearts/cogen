@@ -97,13 +97,19 @@ const ASK_TEMPLATE_CREATE_PROJECT = async (createProjectCommand, cogen) => {
 exports.ASK_TEMPLATE_CREATE_PROJECT = ASK_TEMPLATE_CREATE_PROJECT
 
 const ASK_NEW_CREATE_PROJECT = async (createProjectCommand, cogen) => {
+    const projectPath = createProjectCommand.projectPath
     const result = await createProjectStacks.runSteps(cogen, createProjectCommand)
-    console.log('npm package json ', result._output._packageJSON.toString())
+    directoryControl.mkdir(projectPath)
+    directoryControl.mkdir(path.join(projectPath, 'tests'))
+    directoryControl.mkdir(path.join(projectPath, 'src'))
     Object.keys(result._output._files).map(filepath => {
-        console.log('file path ', filepath)
         const config = result._output._files[filepath].toString()
-        console.log('config ', config)
+        fs.writeFileSync(path.join(projectPath, filepath), config, { encoding: 'utf8' })
     })
+    fs.writeFileSync(path.join(projectPath, 'package.json'), result._output._packageJSON.toString(), { encoding: 'utf8'})
+    console.log('\n')
+    console.log(chalk.greenBright(LOCALE('program.command.new.status.create_done')))
+    console.log(chalk.greenBright(LOCALE('program.common.enjoy')))
 }
 
 exports.ASK_NEW_CREATE_PROJECT = ASK_NEW_CREATE_PROJECT
@@ -111,7 +117,18 @@ exports.ASK_NEW_CREATE_PROJECT = ASK_NEW_CREATE_PROJECT
 exports.ASK_COMMON_CREATE_PROJECT = async (commander, cogen) => {
     const createProjectCommand = abstractCommand(commander, cogen)
 
-    if (createProjectCommand.usingTemplate) {
+    const usingTemplate = await Prompts({
+        type: 'select',
+        name: 'value',
+        message: 'Cogen create project',
+        choices: [
+          { title: 'Template', description: 'Make a new project from exists template', value: true },
+          { title: 'Your self', description: 'Make a new project with Build configuration', value: false }
+        ],
+        initial: 0
+      })
+    
+    if (usingTemplate.value) {
         await ASK_TEMPLATE_CREATE_PROJECT(createProjectCommand, cogen)
     } else {
         await ASK_NEW_CREATE_PROJECT(createProjectCommand, cogen)

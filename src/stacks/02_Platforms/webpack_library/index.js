@@ -16,7 +16,8 @@ module.exports = async (selected, cogen) => {
     description: description,
     value: { name: 'webpack_library', runner: async (meta, cogen) => {
       const config = meta._output
-      const WebpackConfig = cogen.actions.execute.config.webpack
+      const WebpackConfig = cogen.actions.execute.config.jsConfig
+      config._packageJSON.set('devDependencies.webpack-cli', '^3.3.12')
       config._packageJSON.set('devDependencies.webpack', '^4.43.0')
       config._packageJSON.set('devDependencies.npm-run-all', '^4.1.5')
       config._packageJSON.set('devDependencies.rimraf', '^3.0.2')
@@ -26,13 +27,13 @@ module.exports = async (selected, cogen) => {
         // make webpack prod config
       if (!config._files['webpack.config.js']) {
         const webpackProdConfig = {...defaultWebpackConfig.WEBPACK_CONFIG, mode: 'production' }
-        config._files['webpack.config.js'] = new WebpackConfig({ bundleName: cogen.projectName, config: webpackProdConfig })
+        config._files['webpack.config.js'] = new WebpackConfig({ ...webpackProdConfig })
       }
 
       // make webpack dev config
       if (!config._files['webpack.dev.config.js']) {
         const webpackDevConfig = {...defaultWebpackConfig.WEBPACK_DEV_CONFIG, mode: 'development' }
-        config._files['webpack.dev.config.js'] = new WebpackConfig({ bundleName: cogen.projectName, config: webpackDevConfig })
+        config._files['webpack.dev.config.js'] = new WebpackConfig({ ...webpackDevConfig })
       }
     }}
   }

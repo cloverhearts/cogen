@@ -1,8 +1,32 @@
 exports.WEBPACK_CONFIG = {
-  module: {},
-  target: "web",
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  targets: {
+                    browsers: ["last 2 versions"]
+                  },
+                  modules: false // Needed for tree shaking to work.
+                }
+              ]
+            ],
+            plugins: ["@babel/plugin-transform-modules-umd"]
+          }
+        }
+      }
+    ]
+  },
+  target: "node", // or web
   entry: {
-    mylib: () => `path.resolve(__dirname, "index.js")`
+    bundle: () => `path.resolve(__dirname, "index.js")`
   },
 
   output: {
@@ -36,10 +60,34 @@ exports.WEBPACK_CONFIG = {
 };
 
 exports.WEBPACK_DEV_CONFIG = {
-  module: {},
-  target: "web",
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  targets: {
+                    browsers: ["last 2 versions"]
+                  },
+                  modules: false // Needed for tree shaking to work.
+                }
+              ]
+            ],
+            plugins: ["@babel/plugin-transform-modules-umd"]
+          }
+        }
+      }
+    ]
+  },
+  target: "node", // or web
   entry: {
-    mylib: () => `path.resolve(__dirname, "index.js")`
+    htmldoc2json: () => `path.resolve(__dirname, "index.js")`
   },
 
   output: {
@@ -49,7 +97,7 @@ exports.WEBPACK_DEV_CONFIG = {
     umdNamedDefine: true
   },
 
-  mode: "development",
+  mode: "production",
 
   optimization: {
     splitChunks: {

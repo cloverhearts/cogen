@@ -1,10 +1,10 @@
 const serialize = require('serialize-javascript')
 
-class WebpackConfigModel {
+class JSConfigModel {
   constructor(_option = {}) {
     const _bundleName = _option.bundleName || 'bundle'
     const bundleName = _bundleName.replace(/ /gi, '_')
-    const config = _option.config || {
+    const config = _option || {
       mode: "production",
       target: "node", // or web
       entry: {
@@ -27,13 +27,15 @@ class WebpackConfigModel {
 
   toString() {
     const configRaw = this.exports
-    Object.keys(configRaw.entry).map(bundleKey => {
-      configRaw.entry[bundleKey] && typeof configRaw.entry[bundleKey] === 'function' ? configRaw.entry[bundleKey] = `remove%%${configRaw.entry[bundleKey]()}%%remove` : null
-    })
+    if (configRaw.entry) {
+      Object.keys(configRaw.entry).map(bundleKey => {
+        configRaw.entry[bundleKey] && typeof configRaw.entry[bundleKey] === 'function' ? configRaw.entry[bundleKey] = `remove%%${configRaw.entry[bundleKey]()}%%remove` : null
+      })
+    }
 
     configRaw.output && typeof configRaw.output.path  === 'function' ? configRaw.output.path = `remove%%${configRaw.output.path()}%%remove` : null
 
-    const configTextRaw = serialize(configRaw, { space: 2 })
+    const configTextRaw = serialize(configRaw, { space: 2, unsafe: true })
     return `
 ${Object.keys(this._requires).map(k => this._requires[k]).map(r => `const ${r.alias} = require('${r.name}')`).join('\n')}
 module.exports = ${configTextRaw.replace(/("remove%%|%%remove")/g, '').replace(/\\"/g, '"')}
@@ -41,4 +43,4 @@ module.exports = ${configTextRaw.replace(/("remove%%|%%remove")/g, '').replace(/
   }
 }
 
-module.exports = WebpackConfigModel
+module.exports = JSConfigModel

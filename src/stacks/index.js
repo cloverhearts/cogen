@@ -12,8 +12,10 @@ module.exports = {
       }
       const stepFunctions = await getSteps(__dirname)
       const results = await runSteps(stepFunctions, initializeConfig, cogen, command)
+      results.language.value.runner(results, cogen)
       results.platforms.value.runner(results, cogen)
       results.transfilers.value.runner(results, cogen)
+      results.tests.value.runner(results, cogen)
       return results
     }
 }
