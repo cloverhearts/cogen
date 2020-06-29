@@ -12,8 +12,3 @@ You can make javascript/typescript app or module using cogen with easy to make p
 cogen new <project-name>
 ```
 
-### Create a project with template
-
-```shell
-cogen new <project-name> -t
-```
