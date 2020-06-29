@@ -1,13 +1,14 @@
 {
   "name": "cogen",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Javascript/Typescript project generator",
   "main": "cli.js",
   "scripts": {
     "test": "jest"
   },
   "bin": {
-    "cogen": "bin/cogen"
+    "cogen": "bin/cogen",
+    "cogen-new": "bin/cogen-new"
   },
   "engines": {
     "node": ">= 7.0.0"
