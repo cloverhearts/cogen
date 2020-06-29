@@ -2,7 +2,7 @@
 
 Cogen is Javascript/Typescript project code generator.
 
-You can make javascript/typescript app or module using cogen with easy to make popular architecture.
+You can make a javascript/typescript app or module using cogen with easy to make popular architecture.
 
 ## How to use
 
