@@ -6,6 +6,18 @@ You can make javascript/typescript app or module using cogen with easy to make p
 
 ## How to use
 
+### Install
+
+```shell
+npm install -g cogen
+```
+
+or
+
+```shell
+npx cogen new <project-name>
+```
+
 ### Create a project with your choice environment (not yet)
 
 ```shell
