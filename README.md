@@ -12,13 +12,14 @@ You can make javascript/typescript app or module using cogen with easy to make p
 npm install -g cogen
 ```
 
-or
+
+### Create a project with your choice environment.
 
 ```shell
 npx cogen new <project-name>
 ```
 
-### Create a project with your choice environment (not yet)
+or
 
 ```shell
 cogen new <project-name>
