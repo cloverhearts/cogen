@@ -1,13 +1,14 @@
 {
   "name": "cogen",
-  "version": "0.2.2",
-  "description": "Javascript/Typescript project code generator",
+  "version": "0.2.5",
+  "description": "Javascript/Typescript project generator",
   "main": "cli.js",
   "scripts": {
     "test": "jest"
   },
   "bin": {
-    "cogen": "bin/cogen"
+    "cogen": "bin/cogen",
+    "cogen-new": "bin/cogen-new"
   },
   "engines": {
     "node": ">= 7.0.0"
@@ -32,7 +33,8 @@
     "mkdirp": "^1.0.4",
     "ora": "^4.0.4",
     "os-locale": "^5.0.0",
-    "prompts": "^2.3.2"
+    "prompts": "^2.3.2",
+    "serialize-javascript": "^4.0.0"
   },
   "devDependencies": {
     "jest": "^26.0.1",

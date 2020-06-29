@@ -7,6 +7,11 @@ module.exports = async (selected, cogen) => {
   return {
     title: 'Javascript',
     description: description,
-    value: { name: 'javascript', execute: [] }
+    value: { name: 'javascript', execute: [], runner: async (meta, cogen) => {
+      const config = meta._output
+      const indexjs = cogen.actions.execute.config.jsConfig
+      config._files['index.js'] = new indexjs({ projectName: cogen.projectName })
+      config._files['src/.keep'] = 'source directory'
+    } }
   }
 }
