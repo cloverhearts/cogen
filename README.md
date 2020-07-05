@@ -25,3 +25,21 @@ or
 cogen new <project-name>
 ```
 
+### Template
+
+[Cogen standard javascript library stater](https://github.com/cloverhearts/javascript-module-boilerplate)
+
+[Vue with vuex storybook stater by cloverhearts](https://github.com/cloverhearts/vue-with-vuex-storybook-stater)
+
+[React with sagas app by cloverhearts](https://github.com/cloverhearts/react-with-sagas-app-stater)
+
+[React with mobX app by cloverhearts](https://github.com/cloverhearts/react-with-mobx-app-stater)
+
+
+### Support environment
+
+- javascript
+- webpack
+- babel
+- jest
+
