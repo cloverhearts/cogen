@@ -24,6 +24,78 @@
       "comments": {
         "install-after": ""
       }
+    },
+    {
+      "name": "vue-with-vuex-storybook-cloverhearts",
+      "alias": "vuewvsclover",
+      "description": {
+        "en": "Vue and Vuex and storybook, Author cloverHearts",
+        "ko": "Vue and Vuex and storybook, 작성자 cloverHearts"
+      },
+      "file-url": "https://github.com/cloverhearts/vue-with-vuex-storybook-stater/archive/master.zip",
+      "file-url-is-only-github": "yet",
+      "language": ["javascript"],
+      "repository": "https://github.com/cloverhearts/vue-with-vuex-storybook-stater",
+      "homepage": "https://github.com/cloverhearts/vue-with-vuex-storybook-stater",
+      "authors": [
+        {
+          "name": "CloverHearts",
+          "email": "cloverheartsdev+cogen@gmail.com",
+          "homepage-url": "https://github.com/cloverhearts",
+          "profile-url": "https://github.com/cloverhearts"
+        }
+      ],
+      "comments": {
+        "install-after": ""
+      }
+    },
+    {
+      "name": "React-with-sagas-cloverhearts",
+      "alias": "rwsclover",
+      "description": {
+        "en": "React with Sagas, Author cloverHearts",
+        "ko": "React with Sagas, 작성자 cloverHearts"
+      },
+      "file-url": "https://github.com/cloverhearts/react-with-sagas-app-stater/archive/master.zip",
+      "file-url-is-only-github": "yet",
+      "language": ["javascript"],
+      "repository": "https://github.com/cloverhearts/react-with-sagas-app-stater",
+      "homepage": "https://github.com/cloverhearts/react-with-sagas-app-stater",
+      "authors": [
+        {
+          "name": "CloverHearts",
+          "email": "cloverheartsdev+cogen@gmail.com",
+          "homepage-url": "https://github.com/cloverhearts",
+          "profile-url": "https://github.com/cloverhearts"
+        }
+      ],
+      "comments": {
+        "install-after": ""
+      }
+    },
+    {
+      "name": "React-with-mobx-cloverhearts",
+      "alias": "rwmclover",
+      "description": {
+        "en": "React with Mobx, Author cloverHearts",
+        "ko": "React with Mobx, 작성자 cloverHearts"
+      },
+      "file-url": "https://github.com/cloverhearts/react-with-mobx-app-stater/archive/master.zip",
+      "file-url-is-only-github": "yet",
+      "language": ["javascript"],
+      "repository": "https://github.com/cloverhearts/react-with-mobx-app-stater",
+      "homepage": "https://github.com/cloverhearts/react-with-mobx-app-stater",
+      "authors": [
+        {
+          "name": "CloverHearts",
+          "email": "cloverheartsdev+cogen@gmail.com",
+          "homepage-url": "https://github.com/cloverhearts",
+          "profile-url": "https://github.com/cloverhearts"
+        }
+      ],
+      "comments": {
+        "install-after": ""
+      }
     }
   ]
 }
